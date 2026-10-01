@@ -1021,6 +1021,12 @@ html.is-loading body {
   animation: counter-spin var(--dur) linear infinite;
   animation-direction: var(--rdir);
 }
+@media (max-width: 600px) {
+  .ring__item > span {
+    padding: 4px 8px;
+    font-size: 0.56rem;
+  }
+}
 .cert-shine {
   position: absolute;
   inset: 0;

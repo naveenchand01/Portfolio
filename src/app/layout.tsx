@@ -11,6 +11,7 @@ import { SmoothScroll } from '@/components/motion/SmoothScroll';
 import { TransitionProvider } from '@/components/motion/TransitionProvider';
 import { PROFILE } from '@/content/profile';
 import { ROUTES, themeCss } from '@/content/routes';
+import { personJsonLd } from '@/lib/json-ld';
 import { SITE_URL } from '@/lib/site';
 import './globals.css';
 
@@ -58,6 +59,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: theme variables generated from routes.ts */}
         <style dangerouslySetInnerHTML={{ __html: themeCss() }} />
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD built from static content
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()).replace(/</g, '\\u003c') }}
+        />
         <noscript>
           <style>{'[data-intro]{visibility:visible!important}.preloader{display:none!important}'}</style>
         </noscript>

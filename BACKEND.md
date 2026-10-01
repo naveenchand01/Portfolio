@@ -1,6 +1,6 @@
 # Portfolio v2: Backend Spec
 
-**Status:** Draft, part of [PRD.md](PRD.md) §7. It is only built if Naveen picks **D1 = (a)**.
+**Status:** Built (D1 = a, chosen 2026-10-01). Code is done and unit-tested; it starts sending real email once Naveen adds the Resend API key (§9). Part of [PRD.md](PRD.md) §7.
 
 ## 1. Do we need a backend?
 

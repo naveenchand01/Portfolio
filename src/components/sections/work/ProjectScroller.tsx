@@ -41,7 +41,7 @@ export function ProjectScroller() {
         for (const panel of gsap.utils.toArray<HTMLElement>('[data-panel]')) {
           gsap.from(panel.querySelectorAll('[data-body] > *'), {
             y: 40,
-            autoAlpha: 0,
+            opacity: 0,
             stagger: 0.06,
             duration: 1,
             ease: 'expo.out',

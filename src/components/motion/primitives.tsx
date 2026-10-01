@@ -43,7 +43,7 @@ export function Reveal({
       if (!el || prefersReduced()) return;
       gsap.from(stagger ? Array.from(el.children) : el, {
         y: stagger ? 70 : 60,
-        autoAlpha: 0,
+        opacity: 0, // opacity (not visibility) keeps content reachable by keyboard and screen readers
         duration: stagger ? 1.2 : 1.3,
         ease: 'expo.out',
         delay,

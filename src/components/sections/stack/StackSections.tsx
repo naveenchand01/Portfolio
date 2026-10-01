@@ -12,7 +12,7 @@ import { ORBIT_RINGS, SKILL_GROUPS } from '@/content/skills';
 export function Orbit() {
   return (
     <div
-      className="orbit relative mx-auto aspect-square w-[min(92vw,640px)]"
+      className="orbit relative mx-auto aspect-square w-[min(80vw,640px)]"
       role="img"
       aria-label="Technologies orbiting around Naveen"
     >

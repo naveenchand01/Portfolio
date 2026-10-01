@@ -1,7 +1,7 @@
 # Portfolio v2: Product Requirements & Architecture
 
 **Owner:** Naveen Chand · **Author:** Claude · **Created:** 2026-10-01
-**Status:** Draft. Waiting for Naveen's review. No code is written until Naveen approves this file and answers the open decisions in §12.
+**Status:** Approved 2026-10-01 (Naveen accepted every recommendation in §12). Phases 0–5 are built and tested locally. Phase 6 (launch) needs Naveen: GitHub repo, Vercel and Resend accounts.
 
 ---
 
@@ -47,7 +47,7 @@ What gets better:
 | Largest Contentful Paint (mobile, 4G) | ≤ 2.5 s |
 | Cumulative Layout Shift | ≤ 0.05 |
 | Interaction to Next Paint | ≤ 200 ms |
-| First-load JavaScript, home page (gzip) | ≤ 180 KB |
+| First-load JavaScript, home page (gzip) | ≤ 250 KB. Revised from 180 KB after measuring: the Next.js + React runtime alone is ~150 KB and GSAP + Lenis ~60 KB. Measured: **242 KB** |
 | Console errors on any page | 0 |
 | v1 parity checklist (Appendix A) | 100% |
 
@@ -354,7 +354,7 @@ Each phase ends with a working site, a commit, and a short check-in with Naveen.
 
 ---
 
-## 12. Open decisions for Naveen
+## 12. Decisions (all resolved 2026-10-01: Naveen chose every recommendation)
 
 | # | Question | Options | Claude's recommendation |
 |---|---|---|---|

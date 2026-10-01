@@ -19,6 +19,7 @@ export default function StackPage() {
         sub="The languages, frameworks and platforms I’ve shipped with, plus the certifications that back them up."
         aside={<Orbit />}
         gridClassName="grid w-full items-center gap-10 min-[901px]:grid-cols-2"
+        sectionClassName="flex min-h-[92svh] items-end overflow-x-clip pt-35 pb-15"
       />
       <Marquee items={['Build', 'Train', 'Deploy', 'Secure', 'Repeat']} reverse />
       <Toolbox />
