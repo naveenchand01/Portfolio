@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="theme-color" content="#06060a">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:image" content="assets/img/naveen-square.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+  (function () {
+    var h = document.documentElement;
+    h.classList.add('js');
+    try {
+      if (sessionStorage.getItem('nc-nav')) h.classList.add('is-arriving');
+      else if (!sessionStorage.getItem('nc-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="{{page}}">
+
+<canvas id="liquid" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="liquid-distort" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+  <div class="cursor__dot"></div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="nav__logo" data-magnetic data-label="Home" aria-label="Naveen Chand — home">NC<span>.</span></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="about.html" data-label="About"{{cur_about}}><sup>01</sup><span class="roll"><span>About</span><span>About</span></span></a>
+    <a href="work.html" data-label="Work"{{cur_work}}><sup>02</sup><span class="roll"><span>Work</span><span>Work</span></span></a>
+    <a href="stack.html" data-label="Stack"{{cur_stack}}><sup>03</sup><span class="roll"><span>Stack</span><span>Stack</span></span></a>
+    <a href="contact.html" data-label="Contact"{{cur_contact}}><sup>04</sup><span class="roll"><span>Contact</span><span>Contact</span></span></a>
+  </nav>
+  <div class="nav__right">
+    <a class="pill" href="assets/Naveen_Chand_Resume.pdf" target="_blank" rel="noopener" data-magnetic="0.25">
+      <span class="dot-live"></span><span class="roll"><span>Résumé</span><span>Résumé</span></span>
+    </a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <a class="menu__link" href="index.html" data-label="Home"><span>00</span>Home</a>
+  <a class="menu__link" href="about.html" data-label="About"><span>01</span>About</a>
+  <a class="menu__link" href="work.html" data-label="Work"><span>02</span>Work</a>
+  <a class="menu__link" href="stack.html" data-label="Stack"><span>03</span>Stack</a>
+  <a class="menu__link" href="contact.html" data-label="Contact"><span>04</span>Contact</a>
+  <div class="menu__foot mono">
+    <a href="https://www.linkedin.com/in/naveenchand01/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://github.com/naveenchand01" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://www.instagram.com/naveen__chand_/" target="_blank" rel="noopener">Instagram ↗</a>
+    <a href="assets/Naveen_Chand_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+  </div>
+</div>
+
+<main id="main">
+{{content}}
+
+<section class="next wrap" aria-label="Next page">
+  <a class="next__link" href="{{next_href}}" data-label="{{next_label}}" data-cursor="Go">
+    <span class="next__kicker mono">{{next_kicker}}</span>
+    <span class="next__title"><span class="txt">{{next_label}}</span><span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+  </a>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__brand">Naveen Chand<span style="color:var(--accent)">.</span></p>
+        <p>Software engineer: full-stack, machine learning and Web3. Based in Bengaluru, happy to relocate.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Pages</h4>
+        <a href="index.html" data-label="Home">Home</a>
+        <a href="about.html" data-label="About">About</a>
+        <a href="work.html" data-label="Work">Work</a>
+        <a href="stack.html" data-label="Stack">Stack</a>
+        <a href="contact.html" data-label="Contact">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <a href="https://www.linkedin.com/in/naveenchand01/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/naveenchand01" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://x.com/_Naveen_Chand" target="_blank" rel="noopener">X / Twitter ↗</a>
+        <a href="https://www.instagram.com/naveen__chand_/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+      <div class="footer__col">
+        <h4>Say hello</h4>
+        <a href="mailto:naveenchand01042002@gmail.com">naveenchand01042002<br>@gmail.com</a>
+        <p class="mt-s"><span data-clock>--:--:--</span><br>Bengaluru, India</p>
+      </div>
+    </div>
+    <div class="footer__bottom mono">
+      <span>© 2026 Naveen Chand. Designed &amp; coded by hand.</span>
+      <a href="#main" class="to-top" onclick="if(window.lenis){window.lenis.scrollTo(0,{duration:1.6});return false;}">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<div class="transition" aria-hidden="true">
+  <div class="transition__fill"></div>
+  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="t-back" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+    <path class="t-front" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+  </svg>
+  <div class="transition__label"></div>
+</div>
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__top mono"><span>Naveen Chand — Portfolio</span><span>Loading the liquid</span></div>
+    <div class="preloader__bottom">
+      <div class="preloader__name"><span class="ghost">Naveen<br>Chand</span><span class="fill">Naveen<br>Chand</span></div>
+      <div class="preloader__count">000</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/liquid.js"></script>
+{{extra_scripts}}
+<script src="js/main.js"></script>
+</body>
+</html>

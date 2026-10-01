@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naveen Chand: Software Engineer</title>
+<meta name="description" content="Portfolio of Naveen Chand, a software engineer building across full-stack, machine learning and Web3. Based in Bengaluru.">
+<meta name="theme-color" content="#06060a">
+<meta property="og:title" content="Naveen Chand: Software Engineer">
+<meta property="og:description" content="Portfolio of Naveen Chand, a software engineer building across full-stack, machine learning and Web3. Based in Bengaluru.">
+<meta property="og:image" content="assets/img/naveen-square.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+  (function () {
+    var h = document.documentElement;
+    h.classList.add('js');
+    try {
+      if (sessionStorage.getItem('nc-nav')) h.classList.add('is-arriving');
+      else if (!sessionStorage.getItem('nc-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+<canvas id="liquid" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="liquid-distort" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+  <div class="cursor__dot"></div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="nav__logo" data-magnetic data-label="Home" aria-label="Naveen Chand — home">NC<span>.</span></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="about.html" data-label="About"><sup>01</sup><span class="roll"><span>About</span><span>About</span></span></a>
+    <a href="work.html" data-label="Work"><sup>02</sup><span class="roll"><span>Work</span><span>Work</span></span></a>
+    <a href="stack.html" data-label="Stack"><sup>03</sup><span class="roll"><span>Stack</span><span>Stack</span></span></a>
+    <a href="contact.html" data-label="Contact"><sup>04</sup><span class="roll"><span>Contact</span><span>Contact</span></span></a>
+  </nav>
+  <div class="nav__right">
+    <a class="pill" href="assets/Naveen_Chand_Resume.pdf" target="_blank" rel="noopener" data-magnetic="0.25">
+      <span class="dot-live"></span><span class="roll"><span>Résumé</span><span>Résumé</span></span>
+    </a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <a class="menu__link" href="index.html" data-label="Home"><span>00</span>Home</a>
+  <a class="menu__link" href="about.html" data-label="About"><span>01</span>About</a>
+  <a class="menu__link" href="work.html" data-label="Work"><span>02</span>Work</a>
+  <a class="menu__link" href="stack.html" data-label="Stack"><span>03</span>Stack</a>
+  <a class="menu__link" href="contact.html" data-label="Contact"><span>04</span>Contact</a>
+  <div class="menu__foot mono">
+    <a href="https://www.linkedin.com/in/naveenchand01/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://github.com/naveenchand01" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://www.instagram.com/naveen__chand_/" target="_blank" rel="noopener">Instagram ↗</a>
+    <a href="assets/Naveen_Chand_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+  </div>
+</div>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div class="hero__meta mono" data-hero-fade>
+      <span class="status"><span class="dot-live"></span>Open to software engineering roles</span>
+      <span>Bengaluru, IN · <span data-clock>--:--:--</span></span>
+      <span>Portfolio / 2026</span>
+    </div>
+
+    <h1 class="hero__title" aria-label="Naveen Chand">
+      <span class="hero__line" data-split-hero>Naveen</span>
+      <span class="hero__line hero__line--2">
+        <span class="hero__photo" data-hero-photo><img src="assets/img/naveen.webp" alt="Portrait of Naveen Chand" width="800" height="1200" fetchpriority="high"></span>
+        <span data-split-hero>Chand</span>
+      </span>
+    </h1>
+
+    <div class="hero__foot">
+      <p class="hero__lede" data-hero-fade>
+        Software engineer building across <strong>full-stack</strong>, <strong>machine learning</strong> &amp; <strong>Web3</strong>.
+        B.Tech CSBS ’26 and a Google Cloud Certified Associate Cloud Engineer.
+      </p>
+      <div class="rotor" data-hero-fade>
+        <span class="mono">Currently building</span>
+        <div class="rotor__win"><ul data-rotor>
+          <li>AI stock forecasting</li>
+          <li>smart contracts</li>
+          <li>full-stack products</li>
+          <li>cloud-native systems</li>
+        </ul></div>
+      </div>
+      <a href="#intro" class="scroll-cue" data-hero-fade data-magnetic aria-label="Scroll to introduction"
+         onclick="if(window.lenis){window.lenis.scrollTo('#intro',{duration:1.6});return false;}">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="circ" d="M60,60 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs>
+          <text><textPath href="#circ">Scroll · to · explore · Scroll · to · explore ·</textPath></text>
+        </svg>
+        <span class="arrow">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="marquee" aria-label="Technologies I work with">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      <span class="marquee__item">React</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">TypeScript</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Python</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Solidity</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">TensorFlow</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Node.js</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Google Cloud</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">C++</span><span class="marquee__star">✦</span>
+    </div>
+    <div class="marquee__group" aria-hidden="true">
+      <span class="marquee__item">React</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">TypeScript</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Python</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Solidity</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">TensorFlow</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Node.js</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Google Cloud</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">C++</span><span class="marquee__star">✦</span>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="intro">
+  <p class="label mono" data-reveal>(01) Intro</p>
+  <p class="statement__text" data-scrub>
+    I turn ideas into working software: <em>LSTM models</em> that read the market, <em>smart contracts</em> that move value without middlemen, and dashboards people actually enjoy using. I ship end to end and sweat the details.
+  </p>
+</section>
+
+<section class="section--tight wrap">
+  <div class="section-head">
+    <p class="label mono" data-reveal>(02) Featured work</p>
+    <a href="work.html" class="link-arrow" data-label="Work" data-reveal>All projects <span>→</span></a>
+  </div>
+  <article class="feature" data-reveal>
+    <div class="feature__visual" data-img-parallax>
+      <img src="assets/img/stockai.jpg" alt="STOCK AI landing page: AI-driven avatar system for real-time stock market news" loading="lazy" width="1168" height="777">
+    </div>
+    <div class="feature__body">
+      <span class="mono muted">Final-year project · Jul 2026 – present · Live</span>
+      <h2 class="feature__title">STOCK AI</h2>
+      <p>An AI stock-forecasting and news platform. It blends ARIMA/SARIMA, XGBoost and LSTM forecasts with FinBERT sentiment on live financial news, and presents it all through an AI-avatar newsroom and TradingView-style dashboards.</p>
+      <ul class="chips">
+        <li class="chip">Python</li><li class="chip">TensorFlow</li><li class="chip">LSTM</li><li class="chip">XGBoost</li><li class="chip">FinBERT</li><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Node.js</li>
+      </ul>
+      <div class="feature__links">
+        <a class="pill pill--accent" href="https://stock-ai-snowy.vercel.app/" target="_blank" rel="noopener" data-magnetic="0.25"><span class="roll"><span>Visit live site ↗</span><span>Visit live site ↗</span></span></a>
+        <a class="pill" href="work.html" data-label="Work"><span class="roll"><span>Case study</span><span>Case study</span></span></a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="section wrap">
+  <p class="label mono" data-reveal>(03) In numbers</p>
+  <div class="stats" data-stagger>
+    <div class="stat"><span class="stat__num" data-count="4">4</span><span class="stat__label">End-to-end projects shipped, across ML, DeFi, NFTs and forensics</span></div>
+    <div class="stat"><span class="stat__num" data-count="8">8</span><span class="stat__label">Certifications, including Google Cloud ACE</span></div>
+    <div class="stat"><span class="stat__num" data-count="7000">7,000<sup>+</sup></span><span class="stat__label">Developers reached through GDG Kolkata workshops</span></div>
+    <div class="stat"><span class="stat__num" data-count="7.66" data-decimals="2">7.66</span><span class="stat__label">CGPA, B.Tech in Computer Science &amp; Business Systems</span></div>
+  </div>
+</section>
+
+<section class="section--tight wrap">
+  <p class="label mono" data-reveal>(04) Explore</p>
+  <ul class="index__list" data-stagger>
+    <li><a href="about.html" data-label="About" data-preview="about"><span class="index__num mono">01</span><span class="index__title">About</span><span class="index__desc">Story, education, leadership and life off-screen</span><span class="index__arrow">→</span></a></li>
+    <li><a href="work.html" data-label="Work" data-preview="work"><span class="index__num mono">02</span><span class="index__title">Work</span><span class="index__desc">Four projects, from AI forecasting to DeFi</span><span class="index__arrow">→</span></a></li>
+    <li><a href="stack.html" data-label="Stack" data-preview="stack"><span class="index__num mono">03</span><span class="index__title">Stack</span><span class="index__desc">Languages, frameworks, tools and certifications</span><span class="index__arrow">→</span></a></li>
+    <li><a href="contact.html" data-label="Contact" data-preview="contact"><span class="index__num mono">04</span><span class="index__title">Contact</span><span class="index__desc">Hiring? Let’s talk. Available immediately.</span><span class="index__arrow">→</span></a></li>
+  </ul>
+  <div class="hover-preview" aria-hidden="true">
+    <img data-key="about" src="assets/img/candid.jpg" alt="" loading="lazy">
+    <img data-key="work" src="assets/img/stockai.jpg" alt="" loading="lazy" style="object-position:top">
+    <img data-key="stack" src="assets/img/ace-certificate.jpg" alt="" loading="lazy" style="object-fit:contain;background:#fff">
+    <img data-key="contact" src="assets/img/naveen.jpg" alt="" loading="lazy" style="object-position:50% 20%">
+  </div>
+</section>
+
+
+<section class="next wrap" aria-label="Next page">
+  <a class="next__link" href="about.html" data-label="About" data-cursor="Go">
+    <span class="next__kicker mono">Next: who I am</span>
+    <span class="next__title"><span class="txt">About</span><span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+  </a>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__brand">Naveen Chand<span style="color:var(--accent)">.</span></p>
+        <p>Software engineer: full-stack, machine learning and Web3. Based in Bengaluru, happy to relocate.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Pages</h4>
+        <a href="index.html" data-label="Home">Home</a>
+        <a href="about.html" data-label="About">About</a>
+        <a href="work.html" data-label="Work">Work</a>
+        <a href="stack.html" data-label="Stack">Stack</a>
+        <a href="contact.html" data-label="Contact">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <a href="https://www.linkedin.com/in/naveenchand01/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/naveenchand01" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://x.com/_Naveen_Chand" target="_blank" rel="noopener">X / Twitter ↗</a>
+        <a href="https://www.instagram.com/naveen__chand_/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+      <div class="footer__col">
+        <h4>Say hello</h4>
+        <a href="mailto:naveenchand01042002@gmail.com">naveenchand01042002<br>@gmail.com</a>
+        <p class="mt-s"><span data-clock>--:--:--</span><br>Bengaluru, India</p>
+      </div>
+    </div>
+    <div class="footer__bottom mono">
+      <span>© 2026 Naveen Chand. Designed &amp; coded by hand.</span>
+      <a href="#main" class="to-top" onclick="if(window.lenis){window.lenis.scrollTo(0,{duration:1.6});return false;}">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<div class="transition" aria-hidden="true">
+  <div class="transition__fill"></div>
+  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="t-back" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+    <path class="t-front" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+  </svg>
+  <div class="transition__label"></div>
+</div>
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__top mono"><span>Naveen Chand — Portfolio</span><span>Loading the liquid</span></div>
+    <div class="preloader__bottom">
+      <div class="preloader__name"><span class="ghost">Naveen<br>Chand</span><span class="fill">Naveen<br>Chand</span></div>
+      <div class="preloader__count">000</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/liquid.js"></script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

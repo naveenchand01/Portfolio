@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stack | Naveen Chand</title>
+<meta name="description" content="Languages, frameworks, platforms and certifications, including Google Cloud Associate Cloud Engineer.">
+<meta name="theme-color" content="#06060a">
+<meta property="og:title" content="Stack | Naveen Chand">
+<meta property="og:description" content="Languages, frameworks, platforms and certifications, including Google Cloud Associate Cloud Engineer.">
+<meta property="og:image" content="assets/img/naveen-square.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+  (function () {
+    var h = document.documentElement;
+    h.classList.add('js');
+    try {
+      if (sessionStorage.getItem('nc-nav')) h.classList.add('is-arriving');
+      else if (!sessionStorage.getItem('nc-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="stack">
+
+<canvas id="liquid" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="liquid-distort" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+  <div class="cursor__dot"></div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="nav__logo" data-magnetic data-label="Home" aria-label="Naveen Chand — home">NC<span>.</span></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="about.html" data-label="About"><sup>01</sup><span class="roll"><span>About</span><span>About</span></span></a>
+    <a href="work.html" data-label="Work"><sup>02</sup><span class="roll"><span>Work</span><span>Work</span></span></a>
+    <a href="stack.html" data-label="Stack" aria-current="page"><sup>03</sup><span class="roll"><span>Stack</span><span>Stack</span></span></a>
+    <a href="contact.html" data-label="Contact"><sup>04</sup><span class="roll"><span>Contact</span><span>Contact</span></span></a>
+  </nav>
+  <div class="nav__right">
+    <a class="pill" href="assets/Naveen_Chand_Resume.pdf" target="_blank" rel="noopener" data-magnetic="0.25">
+      <span class="dot-live"></span><span class="roll"><span>Résumé</span><span>Résumé</span></span>
+    </a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <a class="menu__link" href="index.html" data-label="Home"><span>00</span>Home</a>
+  <a class="menu__link" href="about.html" data-label="About"><span>01</span>About</a>
+  <a class="menu__link" href="work.html" data-label="Work"><span>02</span>Work</a>
+  <a class="menu__link" href="stack.html" data-label="Stack"><span>03</span>Stack</a>
+  <a class="menu__link" href="contact.html" data-label="Contact"><span>04</span>Contact</a>
+  <div class="menu__foot mono">
+    <a href="https://www.linkedin.com/in/naveenchand01/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://github.com/naveenchand01" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://www.instagram.com/naveen__chand_/" target="_blank" rel="noopener">Instagram ↗</a>
+    <a href="assets/Naveen_Chand_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+  </div>
+</div>
+
+<main id="main">
+<section class="phero phero--stack">
+  <div class="wrap">
+    <div class="phero__grid">
+      <div>
+        <p class="label mono" data-hero-fade>(03) Stack</p>
+        <h1 class="phero__title"><span data-split-hero>The</span><br><span class="outline" data-split-hero>stack.</span></h1>
+        <p class="phero__sub" data-hero-fade>The languages, frameworks and platforms I’ve shipped with, plus the certifications that back them up.</p>
+      </div>
+      <div class="orbit-wrap" data-hero-fade aria-label="Technologies orbiting around Naveen">
+        <div class="ring" style="--r:21"><div class="ring__spin" style="--dur:26s;--dir:normal;--rdir:reverse;--r:21"><span class="ring__item" style="--a:63.0deg"><span>Python</span></span><span class="ring__item" style="--a:135.0deg"><span>C++</span></span><span class="ring__item" style="--a:207.0deg"><span>JavaScript</span></span><span class="ring__item" style="--a:279.0deg"><span>TypeScript</span></span><span class="ring__item" style="--a:351.0deg"><span>SQL</span></span></div></div>
+        <div class="ring" style="--r:32"><div class="ring__spin" style="--dur:40s;--dir:reverse;--rdir:normal;--r:32"><span class="ring__item" style="--a:96.0deg"><span>React</span></span><span class="ring__item" style="--a:147.4deg"><span>Node.js</span></span><span class="ring__item" style="--a:198.9deg"><span>TensorFlow</span></span><span class="ring__item" style="--a:250.3deg"><span>Django</span></span><span class="ring__item" style="--a:301.7deg"><span>Firebase</span></span><span class="ring__item" style="--a:353.1deg"><span>Supabase</span></span><span class="ring__item" style="--a:404.6deg"><span>Tailwind</span></span></div></div>
+        <div class="ring" style="--r:44"><div class="ring__spin" style="--dur:60s;--dir:normal;--rdir:reverse;--r:44"><span class="ring__item" style="--a:132.0deg"><span>Solidity</span></span><span class="ring__item" style="--a:172.0deg"><span>Hardhat</span></span><span class="ring__item" style="--a:212.0deg"><span>Google Cloud</span></span><span class="ring__item" style="--a:252.0deg"><span>AWS</span></span><span class="ring__item" style="--a:292.0deg"><span>MongoDB</span></span><span class="ring__item" style="--a:332.0deg"><span>Git</span></span><span class="ring__item" style="--a:372.0deg"><span>Linux</span></span><span class="ring__item" style="--a:412.0deg"><span>Chainlink</span></span><span class="ring__item" style="--a:452.0deg"><span>IPFS</span></span></div></div>
+        <div class="orbit-core">NC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="marquee marquee--rev" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      <span class="marquee__item">Build</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Train</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Deploy</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Secure</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Repeat</span><span class="marquee__star">✦</span>
+    </div>
+    <div class="marquee__group">
+      <span class="marquee__item">Build</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Train</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Deploy</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Secure</span><span class="marquee__star">✦</span>
+      <span class="marquee__item">Repeat</span><span class="marquee__star">✦</span>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <p class="label mono" data-reveal>(01) Toolbox</p>
+  <h2 class="h2" data-split>What I reach for.</h2>
+  <div class="skills mt-l" data-stagger>
+    <div class="skillset">
+      <div class="skillset__head"><h3 class="h3">Languages</h3><span class="mono">06</span></div>
+      <div class="tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span><span class="tag">Solidity</span></div>
+    </div>
+    <div class="skillset">
+      <div class="skillset__head"><h3 class="h3">Frontend &amp; backend</h3><span class="mono">06</span></div>
+      <div class="tags"><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">Django</span><span class="tag">Firebase</span><span class="tag">Supabase</span></div>
+    </div>
+    <div class="skillset">
+      <div class="skillset__head"><h3 class="h3">ML &amp; AI</h3><span class="mono">10</span></div>
+      <div class="tags"><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">LSTM</span><span class="tag">XGBoost</span><span class="tag">ARIMA / SARIMA</span><span class="tag">FinBERT</span><span class="tag">AWS Bedrock</span><span class="tag">Vertex AI</span></div>
+    </div>
+    <div class="skillset">
+      <div class="skillset__head"><h3 class="h3">Blockchain</h3><span class="mono">07</span></div>
+      <div class="tags"><span class="tag">Solidity</span><span class="tag">Hardhat</span><span class="tag">Ethereum</span><span class="tag">Polygon</span><span class="tag">Web3.js</span><span class="tag">Chainlink</span><span class="tag">IPFS</span></div>
+    </div>
+    <div class="skillset">
+      <div class="skillset__head"><h3 class="h3">Security</h3><span class="mono">05</span></div>
+      <div class="tags"><span class="tag">Network security</span><span class="tag">SIEM</span><span class="tag">Intrusion detection</span><span class="tag">Wireshark</span><span class="tag">Digital forensics</span></div>
+    </div>
+    <div class="skillset">
+      <div class="skillset__head"><h3 class="h3">Data, cloud &amp; tools</h3><span class="mono">10</span></div>
+      <div class="tags"><span class="tag">Google Cloud</span><span class="tag">AWS</span><span class="tag">MySQL</span><span class="tag">SQLite</span><span class="tag">MongoDB</span><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Jira</span><span class="tag">Claude Code</span><span class="tag">Codex</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight wrap">
+  <p class="label mono" data-reveal>(02) Certifications</p>
+  <h2 class="h2" data-split>Verified, not just claimed.</h2>
+  <div class="certs mt-l">
+    <figure class="cert-hero" data-tilt data-reveal>
+      <img src="assets/img/ace-certificate.jpg" alt="Google Cloud Certified Associate Cloud Engineer certificate issued to Naveen Chand, September 14, 2025" loading="lazy" width="1000" height="772">
+      <div class="cert-hero__shine"></div>
+    </figure>
+    <div class="cert-list" data-stagger>
+      <div class="cert"><span class="mono">01</span><span class="cert__name">Associate Cloud Engineer</span><span class="cert__by">Google Cloud · 2025</span></div>
+      <div class="cert"><span class="mono">02</span><span class="cert__name">Google Cybersecurity Specialization</span><span class="cert__by">Google</span></div>
+      <div class="cert"><span class="mono">03</span><span class="cert__name">Google AI Essentials</span><span class="cert__by">Google</span></div>
+      <div class="cert"><span class="mono">04</span><span class="cert__name">Prompt Design in Vertex AI</span><span class="cert__by">Google Cloud</span></div>
+      <div class="cert"><span class="mono">05</span><span class="cert__name">Develop GenAI Apps with Gemini and Streamlit</span><span class="cert__by">Google Cloud</span></div>
+      <div class="cert"><span class="mono">06</span><span class="cert__name">Introduction to Generative AI</span><span class="cert__by">Google Cloud</span></div>
+      <div class="cert"><span class="mono">07</span><span class="cert__name">ChatGPT Prompt Engineering for Developers</span><span class="cert__by">DeepLearning.AI</span></div>
+      <div class="cert"><span class="mono">08</span><span class="cert__name">Blockchain Security</span><span class="cert__by">Certification</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="next wrap" aria-label="Next page">
+  <a class="next__link" href="contact.html" data-label="Contact" data-cursor="Go">
+    <span class="next__kicker mono">Next: let's talk</span>
+    <span class="next__title"><span class="txt">Contact</span><span class="arr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+  </a>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__brand">Naveen Chand<span style="color:var(--accent)">.</span></p>
+        <p>Software engineer: full-stack, machine learning and Web3. Based in Bengaluru, happy to relocate.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Pages</h4>
+        <a href="index.html" data-label="Home">Home</a>
+        <a href="about.html" data-label="About">About</a>
+        <a href="work.html" data-label="Work">Work</a>
+        <a href="stack.html" data-label="Stack">Stack</a>
+        <a href="contact.html" data-label="Contact">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <a href="https://www.linkedin.com/in/naveenchand01/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/naveenchand01" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://x.com/_Naveen_Chand" target="_blank" rel="noopener">X / Twitter ↗</a>
+        <a href="https://www.instagram.com/naveen__chand_/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+      <div class="footer__col">
+        <h4>Say hello</h4>
+        <a href="mailto:naveenchand01042002@gmail.com">naveenchand01042002<br>@gmail.com</a>
+        <p class="mt-s"><span data-clock>--:--:--</span><br>Bengaluru, India</p>
+      </div>
+    </div>
+    <div class="footer__bottom mono">
+      <span>© 2026 Naveen Chand. Designed &amp; coded by hand.</span>
+      <a href="#main" class="to-top" onclick="if(window.lenis){window.lenis.scrollTo(0,{duration:1.6});return false;}">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<div class="transition" aria-hidden="true">
+  <div class="transition__fill"></div>
+  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="t-back" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+    <path class="t-front" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+  </svg>
+  <div class="transition__label"></div>
+</div>
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__top mono"><span>Naveen Chand — Portfolio</span><span>Loading the liquid</span></div>
+    <div class="preloader__bottom">
+      <div class="preloader__name"><span class="ghost">Naveen<br>Chand</span><span class="fill">Naveen<br>Chand</span></div>
+      <div class="preloader__count">000</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/liquid.js"></script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
