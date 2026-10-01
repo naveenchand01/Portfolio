@@ -57,7 +57,7 @@ export function TiltCard({
   );
 }
 
-/** Portrait that ripples like liquid while hovered (SVG turbulence + displacement filter). */
+/** Portrait that tilts slightly while hovered. */
 export function LiquidImage({
   src,
   alt,
@@ -73,34 +73,11 @@ export function LiquidImage({
   caption: string;
   role: string;
 }) {
-  const state = useRef({ scale: 0, raf: 0 });
-
-  const loop = () => {
-    const disp = document.querySelector('#liquid-distort feDisplacementMap');
-    const turb = document.querySelector('#liquid-distort feTurbulence');
-    const t = performance.now() / 1000;
-    turb?.setAttribute(
-      'baseFrequency',
-      `${0.012 + Math.sin(t * 0.9) * 0.004} ${0.02 + Math.cos(t * 0.7) * 0.006}`,
-    );
-    disp?.setAttribute('scale', state.current.scale.toFixed(2));
-    state.current.raf = state.current.scale > 0.05 ? requestAnimationFrame(loop) : 0;
-  };
-  const kick = () => {
-    if (!state.current.raf) state.current.raf = requestAnimationFrame(loop);
-  };
-
   return (
-    <figure
+    <TiltCard
+      as="figure"
       className="relative aspect-[4/5] overflow-hidden rounded-[22px]"
-      data-cursor="Hello"
-      onPointerEnter={() => {
-        if (!canTilt()) return;
-        gsap.to(state.current, { scale: 38, duration: 0.6, ease: 'power2.out', onUpdate: kick });
-      }}
-      onPointerLeave={() => {
-        gsap.to(state.current, { scale: 0, duration: 1.4, ease: 'elastic.out(1, 0.35)', onUpdate: kick });
-      }}
+      tilt={true}
     >
       <Image
         src={src}
@@ -108,12 +85,12 @@ export function LiquidImage({
         width={width}
         height={height}
         sizes="(max-width: 900px) 90vw, 40vw"
-        className="h-full w-full scale-[1.08] object-cover object-[50%_18%] [filter:url(#liquid-distort)]"
+        className="h-full w-full object-cover object-[50%_18%]"
       />
       <figcaption className="absolute right-4 bottom-4 left-4 flex justify-between gap-2.5 rounded-[14px] bg-bg/55 px-4 py-3 text-[0.9rem] backdrop-blur-md">
         <span>{caption}</span>
         <span className="mono text-ink-2">{role}</span>
       </figcaption>
-    </figure>
+    </TiltCard>
   );
 }

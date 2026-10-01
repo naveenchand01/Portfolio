@@ -644,6 +644,7 @@ html.is-loading body {
   flex: none;
   overflow: hidden;
   position: relative;
+  background-color: var(--bg);
   border-radius: 58% 42% 38% 62% / 52% 38% 62% 48%;
   animation: blob 12s ease-in-out infinite;
   box-shadow: 0 30px 80px -20px color-mix(in srgb, var(--a1) 60%, transparent);

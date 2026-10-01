@@ -15,7 +15,7 @@ export default function AboutPage() {
       <PageHero
         label="(01) About"
         lines={[{ text: 'Curious' }, { text: 'by default.', outline: true }]}
-        sub="An army kid (#ArmyBrat) who went to school in Lucknow, studied engineering in Kolkata and now builds software in Bengaluru."
+        sub="Passionate about Web3 & Cybersecurity — Skilled in leveraging cutting-edge technology to secure digital landscapes and build decentralized solutions — Continuously learning and adapting in the ever-evolving tech world."
         aside={
           <div className="mono flex flex-col gap-2.5 text-ink-2 min-[901px]:items-end min-[901px]:text-right">
             <span>B.Tech CSBS · 2022–2026</span>
