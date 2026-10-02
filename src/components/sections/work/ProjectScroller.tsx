@@ -133,7 +133,7 @@ export function ProjectScroller() {
           ))}
         </div>
         <div className="absolute right-[var(--gutter)] bottom-[4vh] left-[var(--gutter)] h-0.5 overflow-hidden rounded-sm bg-line max-[900px]:hidden">
-          <i data-bar className="absolute inset-0 origin-left scale-x-0 bg-accent" />
+          <i data-bar className="absolute inset-0 origin-left [transform:scaleX(0)] bg-accent" />
         </div>
         <span className="mono absolute right-[var(--gutter)] bottom-[calc(4vh+14px)] text-ink-3 max-[900px]:hidden">
           Keep scrolling

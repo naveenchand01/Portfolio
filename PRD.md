@@ -63,7 +63,7 @@ What gets better:
 | Stack `/stack` | Hero with orbiting tech rings, toolbox groups, ACE certificate + 7 certifications | blue · purple · cyan |
 | Contact `/contact` | "Let's talk." hero, copy-email, availability cards, socials, message form | red · pink · gold |
 
-Shared: nav, mobile menu, footer, "next page" link, cursor, grain, preloader, page transition.
+Shared: nav, mobile menu, footer, "next page" link, cursor, grain, preloader, page transition. Scrolling to the end of a page opens the next one after a ~1 s countdown bar (cancelled by scrolling up; Contact, the last page, stays put).
 v1 files: `index.html`, `about.html`, `work.html`, `stack.html`, `contact.html`, `css/style.css`, `js/liquid.js`, `js/main.js`, `js/visuals.js`, `src/`, `assets/`.
 
 ---

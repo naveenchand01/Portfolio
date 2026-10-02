@@ -43,3 +43,34 @@ test.describe('page transitions (desktop)', () => {
     await expect(page).toHaveURL('/work');
   });
 });
+
+test.describe('scrolling to the end of a page', () => {
+  const toBottom = (page: import('@playwright/test').Page) =>
+    page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+
+  test('opens the next page', async ({ page }) => {
+    await skipPreloader(page);
+    await page.goto('/about');
+    await expect(page.getByRole('heading', { level: 1, name: 'Curious by default.' })).toBeVisible();
+    await toBottom(page);
+    await expect(page).toHaveURL('/work', { timeout: 8000 });
+    await expect(page.getByRole('heading', { level: 1, name: 'Selected work.' })).toBeVisible();
+  });
+
+  test('is cancelled by scrolling back up', async ({ page }) => {
+    await skipPreloader(page);
+    await page.goto('/about');
+    await toBottom(page);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(2000);
+    await expect(page).toHaveURL('/about');
+  });
+
+  test('stays on Contact, the last page', async ({ page }) => {
+    await skipPreloader(page);
+    await page.goto('/contact');
+    await toBottom(page);
+    await page.waitForTimeout(2000);
+    await expect(page).toHaveURL('/contact');
+  });
+});
