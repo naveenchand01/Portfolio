@@ -59,7 +59,7 @@ What gets better:
 |---|---|---|
 | Home `/` | Hero (name, morphing photo, role rotor, scroll badge), tech marquee, intro scrub text, featured STOCK AI card, stats counters, explore list with hover preview | violet · teal · coral |
 | About `/about` | Hero, bio with liquid-distort portrait, 4 "lanes" cards, journey timeline, Instagram gallery, leadership | rose · amber · violet |
-| Work `/work` | Hero, pinned horizontal scroller with 4 projects (each with an animated canvas), "Research. Build. Ship." | mint · blue · lime |
+| Work `/work` | Hero, pinned horizontal scroller with 6 projects (each with an animated canvas), "Research. Build. Ship." | mint · blue · lime |
 | Stack `/stack` | Hero with orbiting tech rings, toolbox groups, ACE certificate + 7 certifications | blue · purple · cyan |
 | Contact `/contact` | "Let's talk." hero, copy-email, availability cards, socials, message form | red · pink · gold |
 
@@ -386,7 +386,7 @@ Each phase ends with a working site, a commit, and a short check-in with Naveen.
 - [ ] Home: hero split-text intro, morphing photo blob, auto-fit title, role rotor, spinning scroll badge
 - [ ] Home: velocity-skewed marquee, scrub intro text, featured card, counters, explore list with hover preview
 - [ ] About: liquid-distort portrait, tilt cards with pointer glow, timeline rail fill, horizontal gallery drift, leadership cards
-- [ ] Work: pinned horizontal scroller with progress bar; 4 animated canvases; vertical stack on mobile
+- [ ] Work: pinned horizontal scroller with progress bar; 6 animated canvases; vertical stack on mobile
 - [ ] Stack: orbit rings with upright labels, tag hover fills, certificate shine, certifications list
 - [ ] Contact: copy email, availability cards, socials hover, message form
 - [ ] Next-page link and footer with live Bengaluru clock on every page

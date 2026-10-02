@@ -29,10 +29,10 @@ export const PROFILE = {
 
 export const STATS = [
   {
-    value: 4,
+    value: 6,
     decimals: 0,
     suffix: '',
-    label: 'End-to-end projects shipped, across ML, DeFi, NFTs and forensics',
+    label: 'End-to-end projects shipped, across ML, DeFi, NFTs, forensics and the web',
   },
   { value: 8, decimals: 0, suffix: '', label: 'Certifications, including Google Cloud ACE' },
   { value: 7000, decimals: 0, suffix: '+', label: 'Developers reached through GDG Kolkata workshops' },

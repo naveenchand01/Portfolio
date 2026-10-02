@@ -74,11 +74,7 @@ export function LiquidImage({
   role: string;
 }) {
   return (
-    <TiltCard
-      as="figure"
-      className="relative aspect-[4/5] overflow-hidden rounded-[22px]"
-      tilt={true}
-    >
+    <TiltCard as="figure" className="relative aspect-[4/5] overflow-hidden rounded-[22px]" tilt={true}>
       <Image
         src={src}
         alt={alt}

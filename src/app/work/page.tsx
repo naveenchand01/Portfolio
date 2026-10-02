@@ -6,7 +6,8 @@ import { PROJECTS } from '@/content/projects';
 
 export const metadata: Metadata = {
   title: 'Work',
-  description: 'Selected projects by Naveen Chand: STOCK AI, NFT Vault, DeFi Vault and Cyber Trigger.',
+  description:
+    'Selected projects by Naveen Chand: STOCK AI, NFT Vault, DeFi Vault, Cyber Trigger, Movie Recommender and a restaurant website.',
   alternates: { canonical: '/work' },
 };
 
@@ -31,7 +32,7 @@ export default function WorkPage() {
       <PageHero
         label="(02) Work"
         lines={[{ text: 'Selected' }, { text: 'work.', outline: true }]}
-        sub="Four projects, each shipped end to end: models, contracts, interfaces and the glue in between."
+        sub="Six projects, each shipped end to end: models, contracts, interfaces and the glue in between."
         aside={
           <div className="flex flex-col gap-2.5 min-[901px]:items-end min-[901px]:text-right">
             <span className="font-display text-[clamp(3rem,7vw,6rem)] leading-none font-extrabold tracking-[-0.05em] text-accent">

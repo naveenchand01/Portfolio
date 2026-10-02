@@ -261,4 +261,159 @@ const forensics: Scene = (ctx, w, h, t, st) => {
   );
 };
 
-export const SCENES: Record<VisualScene, Scene> = { stock, nft, defi, forensics };
+/** One title per row/column of the similarity matrix. */
+const FILMS = [
+  'Avatar',
+  'Interstellar',
+  'Inception',
+  'The Matrix',
+  'Gravity',
+  'Alien',
+  'Arrival',
+  'Dune',
+  'Titanic',
+  'Up',
+  'Skyfall',
+  'Frozen',
+  'Jaws',
+  'Heat',
+  'Gladiator',
+  'Memento',
+  'Zodiac',
+  'Rocky',
+];
+
+/** Shortens `text` with an ellipsis until it fits in `max` pixels. */
+const ellipsize = (ctx: CanvasRenderingContext2D, text: string, max: number) => {
+  let s = text;
+  while (s.length > 4 && ctx.measureText(s).width > max) s = `${s.slice(0, -2)}…`;
+  return s;
+};
+
+/** Movie Recommender: a cosine-similarity heatmap with a scanning query row and its top matches. */
+const movies: Scene = (ctx, w, h, t) => {
+  ctx.fillStyle = '#07070b';
+  ctx.fillRect(0, 0, w, h);
+  const n = FILMS.length;
+  const size = Math.min(w * 0.55, h * 0.78);
+  const cell = size / n;
+  const ox = w * 0.06;
+  const oy = (h - size) / 2 - 8;
+  const q = Math.floor(t / 2.2) % n;
+  const sim = (i: number, j: number) =>
+    i === j ? 1 : 0.5 + 0.5 * Math.sin(i * 1.7 + j * 2.3) * Math.cos(i * 0.9 - j * 1.3);
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      const v = sim(i, j);
+      const on = i === q;
+      ctx.fillStyle = on ? `rgba(200,255,46,${0.15 + v * 0.85})` : `rgba(47,107,255,${0.06 + v * v * 0.6})`;
+      ctx.fillRect(ox + j * cell + 1, oy + i * cell + 1, cell - 2, cell - 2);
+    }
+  }
+  const scan = ((t % 2.2) / 2.2) * size;
+  ctx.fillStyle = 'rgba(200,255,46,0.9)';
+  ctx.fillRect(ox + scan, oy + q * cell - 3, 2, cell + 6);
+
+  const ranked = Array.from({ length: n }, (_, j) => j)
+    .filter((j) => j !== q)
+    .sort((a, b) => sim(q, b) - sim(q, a))
+    .slice(0, 5);
+  const lx = ox + size + w * 0.05;
+  const rx = w - 16;
+  ctx.font = MONO;
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.fillText(ellipsize(ctx, `query: ${FILMS[q]}`, rx - lx), lx, oy + 12);
+  ranked.forEach((j, k) => {
+    const y = oy + 44 + k * 34;
+    const s = sim(q, j);
+    const shown = Math.min(1, Math.max(0, (t % 2.2) * 2.5 - k * 0.35));
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.fillRect(lx, y, rx - lx, 6);
+    ctx.fillStyle = '#c8ff2e';
+    ctx.fillRect(lx, y, (rx - lx) * s * shown, 6);
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    const score = s.toFixed(2);
+    ctx.fillText(
+      ellipsize(ctx, `${k + 1}. ${FILMS[j]}`, rx - lx - ctx.measureText(score).width - 8),
+      lx,
+      y - 6,
+    );
+    ctx.textAlign = 'right';
+    ctx.fillText(score, rx, y - 6);
+    ctx.textAlign = 'left';
+  });
+  ctx.fillStyle = 'rgba(255,255,255,0.6)';
+  ctx.fillText('TF-IDF → cosine_similarity  ·  4803 × 4803', 16, h - 18);
+};
+
+/** Restaurant Website: warm blobs drifting behind a turning plate with rising steam. */
+const restaurant: Scene = (ctx, w, h, t) => {
+  ctx.fillStyle = '#0d0907';
+  ctx.fillRect(0, 0, w, h);
+  const blobs = [
+    ['255,122,56', 0.25, 0.3, 0.35],
+    ['255,190,80', 0.75, 0.25, 0.28],
+    ['80,170,120', 0.2, 0.8, 0.22],
+    ['90,110,200', 0.82, 0.78, 0.2],
+  ] as const;
+  for (const [i, [rgb, bx, by, br]] of blobs.entries()) {
+    const x = (bx + Math.sin(t * 0.4 + i * 2) * 0.05) * w;
+    const y = (by + Math.cos(t * 0.35 + i) * 0.05) * h;
+    const r = br * Math.max(w, h);
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, `rgba(${rgb},0.35)`);
+    g.addColorStop(1, `rgba(${rgb},0)`);
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
+  }
+  const cx = w / 2;
+  const cy = h / 2;
+  const R = Math.min(w, h) * 0.26;
+  ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(cx, cy, R, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.beginPath();
+  ctx.arc(cx, cy, R * 0.72, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 6; i++) {
+    const a = t * 0.5 + (i / 6) * Math.PI * 2;
+    ctx.fillStyle = i % 2 ? '#ff7a38' : '#ffbe50';
+    ctx.beginPath();
+    ctx.arc(cx + Math.cos(a) * R * 0.86, cy + Math.sin(a) * R * 0.86, 6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  for (let k = 0; k < 3; k++) {
+    const p = (t * 0.35 + k / 3) % 1;
+    ctx.strokeStyle = `rgba(255,255,255,${(1 - p) * 0.35})`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    const sx = cx + (k - 1) * R * 0.3;
+    for (let s = 0; s <= 20; s++) {
+      const yy = cy - R * 0.2 - (s / 20) * R * 1.1 * (0.4 + p);
+      const xx = sx + Math.sin(s * 0.5 + t * 2 + k) * 8;
+      if (s === 0) ctx.moveTo(xx, yy);
+      else ctx.lineTo(xx, yy);
+    }
+    ctx.stroke();
+  }
+  ctx.lineWidth = 1;
+  ctx.font = MONO;
+  ctx.fillStyle = 'rgba(255,255,255,0.6)';
+  // Top-right: the screenshot frame covers the bottom of this panel.
+  ctx.textAlign = 'right';
+  ctx.fillText('filter: all · breakfast · lunch · dinner', w - 16, 30);
+  ctx.textAlign = 'left';
+};
+
+export const SCENES: Record<VisualScene, Scene> = {
+  stock,
+  nft,
+  defi,
+  forensics,
+  movies,
+  restaurant,
+};

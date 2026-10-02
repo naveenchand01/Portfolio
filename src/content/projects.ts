@@ -1,7 +1,7 @@
-export type VisualScene = 'stock' | 'nft' | 'defi' | 'forensics';
+export type VisualScene = 'stock' | 'nft' | 'defi' | 'forensics' | 'movies' | 'restaurant';
 
 export type Project = {
-  slug: 'stock-ai' | 'nft-vault' | 'defi-vault' | 'cyber-trigger';
+  slug: 'stock-ai' | 'nft-vault' | 'defi-vault' | 'cyber-trigger' | 'movie-recommender' | 'restaurant-site';
   title: string;
   tagline: string;
   context: string;
@@ -12,6 +12,8 @@ export type Project = {
   visual: VisualScene;
   screenshot?: { src: string; alt: string };
   links: { live?: string; repo?: string };
+  /** Text for the live link; defaults to "Live site". */
+  liveLabel?: string;
   featured?: boolean;
 };
 
@@ -100,6 +102,48 @@ export const PROJECTS: Project[] = [
     tech: ['Python', 'pytsk3', 'libewf', 'Wireshark', 'Solidity', 'Hardhat'],
     visual: 'forensics',
     links: { repo: GITHUB },
+  },
+  {
+    slug: 'movie-recommender',
+    title: 'Movie Recommender',
+    tagline: 'Content-based movie suggestions from a single favourite title.',
+    context: 'Machine learning',
+    period: 'Jan 2024',
+    summary:
+      'A recommendation system that suggests 30 similar films from a dataset of 4,803 movies, using each film’s genres, keywords, tagline, cast and director.',
+    highlights: [
+      'TF-IDF vectors built from five combined text features',
+      'Cosine similarity across a 4,803 × 4,803 matrix to rank matches',
+      'Fuzzy title matching with difflib, plus exploratory charts of ratings and popularity',
+    ],
+    tech: ['Python', 'pandas', 'NumPy', 'scikit-learn', 'seaborn', 'Google Colab'],
+    visual: 'movies',
+    links: {
+      live: 'https://colab.research.google.com/github/naveenchand01/Movie-Recommendation-Project/blob/main/movie_recommendation_system_visualization_analysis.ipynb',
+      repo: `${GITHUB}/Movie-Recommendation-Project`,
+    },
+    liveLabel: 'Open in Colab',
+  },
+  {
+    slug: 'restaurant-site',
+    title: 'Restaurant Website',
+    tagline: 'A one-page, animated website for an Indian restaurant.',
+    context: 'Front-end',
+    period: '2023',
+    summary:
+      'A single-page restaurant site with a filterable menu, gallery, table booking hours, chef and testimonial sliders, FAQs, a blog and a newsletter footer.',
+    highlights: [
+      'Menu filtered by breakfast, lunch and dinner with MixItUp',
+      'Swiper sliders for chefs and reviews, and a Fancybox gallery',
+      'Smooth scrolling and parallax effects with GSAP ScrollTrigger',
+    ],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'jQuery', 'GSAP', 'Swiper', 'Netlify'],
+    visual: 'restaurant',
+    screenshot: {
+      src: '/images/restaurant.jpg',
+      alt: 'Restaurant website hero: "Welcome To Our India Restaurant" next to a sushi photo',
+    },
+    links: { live: 'https://restaurant01111.netlify.app/', repo: `${GITHUB}/restaurant` },
   },
 ];
 

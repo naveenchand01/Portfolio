@@ -8,9 +8,12 @@ import { gsap, useGSAP } from '@/lib/gsap';
 import { ProjectVisual } from './ProjectVisual';
 
 /**
- * Desktop: the section pins and the four project panels scroll sideways as you scroll down.
+ * Desktop: the section pins and the project panels scroll sideways as you scroll down.
  * Mobile (≤ 900px): a normal vertical stack.
  */
+/** Long single words ("Recommender") don't fit the panel at the full title size. */
+const hasLongWord = (title: string) => title.split(' ').some((w) => w.length > 8);
+
 export function ProjectScroller() {
   const root = useRef<HTMLElement>(null);
 
@@ -90,7 +93,13 @@ export function ProjectScroller() {
                   <span>{p.context}</span>
                   <span>{p.period}</span>
                 </div>
-                <h2 className="font-display text-[clamp(2.4rem,4.6vw,4.8rem)] leading-[0.88] font-extrabold tracking-[-0.05em]">
+                <h2
+                  className={`font-display leading-[0.88] font-extrabold tracking-[-0.05em] ${
+                    hasLongWord(p.title)
+                      ? 'text-[clamp(1.45rem,2.9vw,2.6rem)] max-[900px]:text-[5.8vw]'
+                      : 'text-[clamp(2.4rem,4.6vw,4.8rem)]'
+                  }`}
+                >
                   {p.title}
                 </h2>
                 <p className="font-display text-[clamp(1.05rem,1.4vw,1.35rem)] leading-tight font-semibold text-accent">
@@ -114,7 +123,7 @@ export function ProjectScroller() {
                 <div className="mt-auto flex flex-wrap gap-2.5 pt-2">
                   {p.links.live && (
                     <PillAnchor href={p.links.live} accent>
-                      Live site ↗
+                      {p.liveLabel ?? 'Live site'} ↗
                     </PillAnchor>
                   )}
                   {p.links.repo && <PillAnchor href={p.links.repo}>GitHub ↗</PillAnchor>}

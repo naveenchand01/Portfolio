@@ -8,7 +8,7 @@ import { gsap } from '@/lib/gsap';
 
 const ITEMS: { key: Exclude<RouteKey, 'home'>; desc: string; preview: string; fit?: 'contain' }[] = [
   { key: 'about', desc: 'Story, education, leadership and life off-screen', preview: '/images/candid.jpg' },
-  { key: 'work', desc: 'Four projects, from AI forecasting to DeFi', preview: '/images/stockai.jpg' },
+  { key: 'work', desc: 'Six projects, from AI forecasting to DeFi', preview: '/images/stockai.jpg' },
   {
     key: 'stack',
     desc: 'Languages, frameworks, tools and certifications',
